@@ -1,0 +1,8 @@
+  
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+  <div>
+    <ul *ngFor="let people of people | async" >
+      {{people.name}}
+    </ul>
+  </div>
+
