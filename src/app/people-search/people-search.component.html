@@ -1,8 +1,19 @@
-  <div class="row"><div class="col-sm-2"></div> <div class="col-sm-8"><h2>Search for your favourite character in the Star Wars Universe!</h2></div> <div class="col-sm-2"></div></div>
-  <div class="row"><div class="col-sm-4"></div><div class="col-sm-4"><input #searchBox id="search-box" (keyup)="search(searchBox.value)" /></div><div class="col-sm-4"></div></div>
-  <div>
-    <ul *ngFor="let people of people | async" >
-      {{people.name}}
-    </ul>
+<div class="row">
+  <div class="col-sm-2"></div>
+  <div class="col-sm-8">
+    <h2>Search for your favourite character in the Star Wars Universe!</h2>
   </div>
+  <div class="col-sm-2"></div>
+</div>
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4"><input #searchBox id="search-box" (keyup)="search(searchBox.value)" /></div>
+  <div class="col-sm-4"></div>
+</div>
+<div>
+  <ul *ngFor="let people of people | async" [class.selected]="people === selectedPeople"(click)="onSelect(people)">
+    {{people.name}}
+    <!--<p ng-if="people!=0">{{peopleDetail.height}}</p>-->
 
+  </ul>
+</div>

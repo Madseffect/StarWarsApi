@@ -13,6 +13,7 @@ import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';
 
 import {PeopleSearchService} from '../people-search.service';
+import {PeopleDetailService} from '../people-detail.service';
 import {People} from '../people';
 
 import {Router, ActivatedRoute, Params} from '@angular/router';
@@ -21,7 +22,7 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
   selector: 'app-people-search',
   templateUrl: './people-search.component.html',
   styleUrls: ['./people-search.component.css'],
-  providers:[PeopleSearchService]
+  providers:[PeopleSearchService,PeopleDetailService]
 })
 export class PeopleSearchComponent implements OnInit {
   people:Observable<People[]>;
@@ -47,5 +48,7 @@ export class PeopleSearchComponent implements OnInit {
         return Observable.of<People[]>([]);
       });
   }
+
+ 
 
 }

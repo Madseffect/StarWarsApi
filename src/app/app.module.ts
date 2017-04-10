@@ -12,12 +12,14 @@ import { SwHtmlComponent } from './sw-html/sw-html.component';
 import{AppRouterModule} from './app-router/app-router.module';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     AllPeopleComponent,
     PeopleSearchComponent,
     SwHtmlComponent,
+    
    
   ],
   imports: [

@@ -6,6 +6,7 @@ import { AllPeopleComponent } from 'app/all-people/all-people.component';
 import { PeopleSearchComponent } from 'app/people-search/people-search.component';
 import { SwHtmlComponent } from 'app/sw-html/sw-html.component';
 
+
 const appRoutes: Routes = [
 
   { path: 'all-people', component: AllPeopleComponent },

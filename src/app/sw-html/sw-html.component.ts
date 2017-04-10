@@ -6,7 +6,9 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
 @Component({
   selector: 'app-sw-html',
   templateUrl: './sw-html.component.html',
-  styleUrls: ['./sw-html.component.css']
+  styleUrls: ['./sw-html.component.css'],
+  
+  
 })
 export class SwHtmlComponent implements OnInit {
 
