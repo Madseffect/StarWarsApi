@@ -1,3 +1,32 @@
  
- <app-sw-html></app-sw-html>
+
+ <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="">Mads K Mandatory</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+         <a routerLink="/sw-html" routerLinkActive="active">Home</a>
+        <a routerLink="/all-people" routerLinkActive="active">People</a>
+        <a routerLink="/people-search" routerLinkActive="active">Search</a>
+        
+      </ul>
+     
+    </div>
+  </div>
+</nav>
+<div >
+   <router-outlet></router-outlet>
+</div>
+
+
+
+
+
  

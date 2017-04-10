@@ -15,6 +15,8 @@ import 'rxjs/add/operator/switchMap';
 import {PeopleSearchService} from '../people-search.service';
 import {People} from '../people';
 
+import {Router, ActivatedRoute, Params} from '@angular/router';
+
 @Component({
   selector: 'app-people-search',
   templateUrl: './people-search.component.html',
@@ -25,7 +27,7 @@ export class PeopleSearchComponent implements OnInit {
   people:Observable<People[]>;
   private searchTerms=new Subject<string>();
 
-  constructor(private searchService:PeopleSearchService) { }
+  constructor(private searchService:PeopleSearchService, private router: Router, private activatedroute:ActivatedRoute) { }
 
   search(term:string):void{
     this.searchTerms.next(term);
