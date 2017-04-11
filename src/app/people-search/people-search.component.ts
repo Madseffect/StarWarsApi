@@ -25,17 +25,18 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
   providers:[PeopleSearchService,PeopleDetailService]
 })
 export class PeopleSearchComponent implements OnInit {
-  people:Observable<People[]>;
+  peoples:Observable<People[]>;
   private searchTerms=new Subject<string>();
+  peopleDetail:Observable<People>;
 
-  constructor(private searchService:PeopleSearchService, private router: Router, private activatedroute:ActivatedRoute) { }
+  constructor(private searchService:PeopleSearchService, private detailService:PeopleDetailService, private router: Router, private activatedroute:ActivatedRoute) { }
 
   search(term:string):void{
     this.searchTerms.next(term);
   }
 
   ngOnInit() {
-    this.people = this.searchTerms
+    this.peoples = this.searchTerms
       .debounceTime(300)        // wait 300ms after each keystroke before considering the term
       .distinctUntilChanged()   // ignore if next search term is same as previous
       .switchMap(term => term   // switch to new observable each time the term changes
@@ -48,7 +49,10 @@ export class PeopleSearchComponent implements OnInit {
         return Observable.of<People[]>([]);
       });
   }
+public onSelect(people:People): void{
+ this.peopleDetail=this.detailService.details(people.url);
 
+}
  
 
 }

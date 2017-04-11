@@ -10,10 +10,17 @@
   <div class="col-sm-4"><input #searchBox id="search-box" (keyup)="search(searchBox.value)" /></div>
   <div class="col-sm-4"></div>
 </div>
-<div>
-  <ul *ngFor="let people of people | async" [class.selected]="people === selectedPeople"(click)="onSelect(people)">
-    {{people.name}}
-    <!--<p ng-if="people!=0">{{peopleDetail.height}}</p>-->
+ <ul class="peoples">
+      <li *ngFor="let people of peoples | async"
+        [class.selected]="people === selectedPeople"(click)="onSelect(people)">
+        {{people.name}}
+       
+      </li>
+    </ul>
+        <div *ngIf="selectedPeople">
+      <h2>{{peopleDetail.name}} </h2>
+    </div>
 
-  </ul>
-</div>
+    
+    
+
