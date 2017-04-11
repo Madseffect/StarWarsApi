@@ -55,7 +55,7 @@ export class PeopleSearchComponent implements OnInit {
 public onSelect(people:People): void{
   this.peopleDetail=people; 
  
- //this.detailService.details(people.url).subscribe(peopleDetail=>this.peopleDetail=peopleDetail);
+
  
 
   
