@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 
 import { Observable }        from 'rxjs/Observable';
 import { Subject }           from 'rxjs/Subject';
@@ -13,7 +13,7 @@ import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';
 
 import {PeopleSearchService} from '../people-search.service';
-import {PeopleDetailService} from '../people-detail.service';
+
 import {People} from '../people';
 
 import {Router, ActivatedRoute, Params} from '@angular/router';
@@ -22,14 +22,17 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
   selector: 'app-people-search',
   templateUrl: './people-search.component.html',
   styleUrls: ['./people-search.component.css'],
-  providers:[PeopleSearchService,PeopleDetailService]
+  providers:[PeopleSearchService],
+ 
+ 
+  
 })
 export class PeopleSearchComponent implements OnInit {
   peoples:Observable<People[]>;
   private searchTerms=new Subject<string>();
-  peopleDetail:Observable<People>;
+  public peopleDetail:People;
 
-  constructor(private searchService:PeopleSearchService, private detailService:PeopleDetailService, private router: Router, private activatedroute:ActivatedRoute) { }
+  constructor(private searchService:PeopleSearchService,  private router: Router, private activatedroute:ActivatedRoute) { }
 
   search(term:string):void{
     this.searchTerms.next(term);
@@ -50,7 +53,12 @@ export class PeopleSearchComponent implements OnInit {
       });
   }
 public onSelect(people:People): void{
- this.peopleDetail=this.detailService.details(people.url);
+  this.peopleDetail=people; 
+ 
+ //this.detailService.details(people.url).subscribe(peopleDetail=>this.peopleDetail=peopleDetail);
+ 
+
+  
 
 }
  

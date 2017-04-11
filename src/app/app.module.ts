@@ -11,6 +11,8 @@ import { SwHtmlComponent } from './sw-html/sw-html.component';
 
 import{AppRouterModule} from './app-router/app-router.module';
 
+import { PeopleDetailComponent } from './people-search/people-detail/people-detail.component';
+
 
 
 @NgModule({
@@ -19,6 +21,7 @@ import{AppRouterModule} from './app-router/app-router.module';
     AllPeopleComponent,
     PeopleSearchComponent,
     SwHtmlComponent,
+    PeopleDetailComponent
     
    
   ],

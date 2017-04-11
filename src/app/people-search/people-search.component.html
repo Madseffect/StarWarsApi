@@ -10,16 +10,21 @@
   <div class="col-sm-4"><input #searchBox id="search-box" (keyup)="search(searchBox.value)" /></div>
   <div class="col-sm-4"></div>
 </div>
+<div class="row">
+ <div class="col-sm-4">
  <ul class="peoples">
       <li *ngFor="let people of peoples | async"
         [class.selected]="people === selectedPeople"(click)="onSelect(people)">
         {{people.name}}
-       
+        
       </li>
+       
     </ul>
-        <div *ngIf="selectedPeople">
-      <h2>{{peopleDetail.name}} </h2>
-    </div>
+ </div>
+<div class="col-sm-4">
+  <app-people-detail [peopleDetail]='peopleDetail'></app-people-detail>  
+</div>
+</div>
 
     
     
